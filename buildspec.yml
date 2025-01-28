@@ -3,13 +3,14 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo "Installing dependencies..."
+      - echo "No dependencies needed for this static website."
   build:
     commands:
-      - echo "Building project..."
+      - echo "Building the static website..."
   post_build:
     commands:
-      - aws s3 sync ./ s3://color-changer-website --delete
+      - echo "Deploying to S3 bucket..."
+      - aws s3 sync ./ s3://<your-bucket-name> --delete
 artifacts:
   files:
     - '**/*'
