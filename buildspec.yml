@@ -1,0 +1,15 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "Installing dependencies..."
+  build:
+    commands:
+      - echo "Building project..."
+  post_build:
+    commands:
+      - aws s3 sync ./ s3://color-changer-website --delete
+artifacts:
+  files:
+    - '**/*'
